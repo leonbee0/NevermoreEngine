@@ -22,7 +22,7 @@
 	@class ServiceBag
 ]=]
 
-local require = require(script.Parent.loader).load(script)
+local require = require(script.Parent:WaitForChild("loader", 9e9)).load(script)
 
 local Signal = require("Signal")
 local BaseObject = require("BaseObject")
@@ -75,8 +75,7 @@ end
 	@return boolean
 ]=]
 function ServiceBag.isServiceBag(value)
-	return type(value) == "table"
-		and value.ClassName == "ServiceBag"
+	return type(value) == "table" and value.ClassName == "ServiceBag"
 end
 
 --[=[
